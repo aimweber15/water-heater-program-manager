@@ -13,8 +13,11 @@ const PRIORITIZATION_SYSTEM_PROMPT = `You are helping a Wisconsin electric coope
 decide which water heater program callbacks to make first. You rank; a
 person makes every call. You never contact anyone or change a record.
 
-Rank the records below. Read the free-text notes - that is where the
-situation lives.
+Each record includes two note sources: situation_notes (the member's own
+words, captured at intake) and contact_history (a chronological log of
+contact since then). Read both - that is where the situation lives. For
+records logged through the app, the first contact_history entry may repeat
+the intake statement verbatim; treat that as one signal, not two.
 
 TIER 1 - call today. Any one of these in the notes:
   - household currently has no hot water
@@ -38,9 +41,9 @@ TIE-BREAK - same tier: the record further along the pipeline ranks
 higher (Quoted above Inquiry). Same tier and same status: longest
 time since last contact.
 
-THIN NOTES - if the notes contain no situational information, place
-the record in Tier 3 and set note_quality to "low". Say so plainly.
-Never invent urgency that is not in the text.
+THIN NOTES - if situation_notes and contact_history together contain no
+situational information, place the record in Tier 3 and set note_quality
+to "low". Say so plainly. Never invent urgency that is not in the text.
 
 Return JSON only, matching this shape:
 { "ranked": [ { "record_id", "rank", "tier", "reason",
@@ -97,7 +100,8 @@ export async function POST() {
     ),
     attempt_count: r.attempt_count,
     last_contact_date: r.last_contact_date,
-    notes: notesByRecord.get(r.id) ?? [],
+    situation_notes: r.situation_notes ?? null,
+    contact_history: notesByRecord.get(r.id) ?? [],
   }));
 
   const anthropic = new Anthropic({ apiKey });
