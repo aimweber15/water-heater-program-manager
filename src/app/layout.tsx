@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SCEC Water Heater Program Manager",
-  description: "St. Croix Electric Cooperative water heater sales and load management program tracker",
+  title: "Water Heater Program Manager",
+  description: "Water heater sales and load management program tracker",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <header className="border-b border-slate-200 bg-white">
           <div className="mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
             <Link href="/" className="font-semibold tracking-tight">
-              SCEC Water Heater Program
+              Water Heater Program
             </Link>
             <nav className="flex gap-6 text-sm font-medium text-slate-600">
               <Link href="/" className="hover:text-slate-900">

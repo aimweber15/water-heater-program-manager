@@ -219,7 +219,7 @@ function MemberPanel({ record, onSave }: { record: WaterHeaterRecord; onSave: (f
         onChange={(v) => setDraft({ ...draft, household_size: v })}
       />
       <CheckboxField
-        label="Already has SCEC water heater"
+        label="Already has one of our water heaters"
         checked={draft.has_existing_scec_water_heater}
         onChange={(v) => setDraft({ ...draft, has_existing_scec_water_heater: v })}
       />
@@ -300,7 +300,7 @@ function InquiryPanel({ record, onSave }: { record: WaterHeaterRecord; onSave: (
         onChange={(v) => setDraft({ ...draft, requested_follow_up: v })}
       />
       <CheckboxField
-        label="Confirmed SCEC member"
+        label="Confirmed member"
         checked={draft.is_scec_member}
         onChange={(v) => setDraft({ ...draft, is_scec_member: v })}
       />
@@ -379,7 +379,7 @@ function SalePanel({
         disabled={greyed}
       />
       <TextField
-        label="Serial number (SCEC staff only, at pick-up)"
+        label="Serial number (staff only, at pick-up)"
         value={draft.serial_number ?? ""}
         onChange={(v) => setDraft({ ...draft, serial_number: v })}
         disabled={greyed}

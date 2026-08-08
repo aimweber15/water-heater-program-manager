@@ -110,7 +110,7 @@ export default function NewInquiryPage() {
           <CheckboxField label="Checking price only" checked={form.price_check_only} onChange={(v) => set("price_check_only", v)} />
           <CheckboxField label="Asked for follow-up" checked={form.requested_follow_up} onChange={(v) => set("requested_follow_up", v)} />
           <CheckboxField
-            label="Household already has SCEC water heater"
+            label="Household already has one of our water heaters"
             checked={form.has_existing_scec_water_heater}
             onChange={(v) => set("has_existing_scec_water_heater", v)}
           />
@@ -120,7 +120,7 @@ export default function NewInquiryPage() {
         <div>
           <h3 className="text-sm font-medium text-slate-700">Eligibility (verified verbally)</h3>
           <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
-            <CheckboxField label="Confirmed SCEC member" checked={form.is_scec_member} onChange={(v) => set("is_scec_member", v)} />
+            <CheckboxField label="Confirmed member" checked={form.is_scec_member} onChange={(v) => set("is_scec_member", v)} />
             <CheckboxField label="Heater is electric" checked={form.heater_is_electric} onChange={(v) => set("heater_is_electric", v)} />
             <CheckboxField
               label="Agreed to load management"
