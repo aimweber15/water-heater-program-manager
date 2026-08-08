@@ -103,7 +103,7 @@ export default function DashboardPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-semibold">Dashboard</h1>
-        <p className="mt-1 text-sm text-slate-500">Who needs me today?</p>
+        <p className="mt-1 text-sm text-slate-600">Who needs me today?</p>
       </div>
 
       {loadError && (
@@ -123,14 +123,14 @@ export default function DashboardPage() {
         <section className="rounded-lg border border-slate-200 bg-white p-5">
           <h2 className="font-medium">Needs Attention</h2>
           {records === null ? (
-            <p className="mt-3 text-sm text-slate-400">Loading…</p>
+            <p className="mt-3 text-sm text-slate-600">Loading…</p>
           ) : attentionRows.length === 0 ? (
             <p className="mt-3 text-sm text-emerald-700">All clear — nothing needs attention right now.</p>
           ) : (
             <div className="mt-4 space-y-5">
               {memberAttention.length > 0 && (
                 <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-600">
                     Member-facing
                   </h3>
                   <ul className="mt-2 divide-y divide-slate-100">
@@ -142,7 +142,7 @@ export default function DashboardPage() {
               )}
               {internalAttention.length > 0 && (
                 <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-400">Internal</h3>
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-600">Internal</h3>
                   <ul className="mt-2 divide-y divide-slate-100">
                     {internalAttention.map((row, i) => (
                       <AttentionRow key={i} row={row} />
@@ -171,11 +171,11 @@ export default function DashboardPage() {
           )}
 
           {prioritizing && (
-            <p className="mt-4 text-sm text-slate-400">Claude is reading the notes on open records…</p>
+            <p className="mt-4 text-sm text-slate-600">Claude is reading the notes on open records…</p>
           )}
 
           {!prioritizing && results === null && !prioritizeError && (
-            <p className="mt-4 text-sm text-slate-400">
+            <p className="mt-4 text-sm text-slate-600">
               Click the button to have Claude rank open inquiries by how critical the member&apos;s situation is.
             </p>
           )}
@@ -187,7 +187,7 @@ export default function DashboardPage() {
           {!prioritizing && results !== null && results.length > 0 && (
             <div className="mt-4 space-y-3">
               {generatedAt && (
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-slate-600">
                   Generated {new Date(generatedAt).toLocaleString()}
                 </p>
               )}
@@ -219,7 +219,7 @@ function SummaryCount({ label, value }: { label: string; value: number | undefin
   return (
     <div className="rounded-lg border border-slate-200 bg-white p-4">
       <div className="text-2xl font-semibold">{value ?? "—"}</div>
-      <div className="mt-1 text-xs text-slate-500">{label}</div>
+      <div className="mt-1 text-xs text-slate-600">{label}</div>
     </div>
   );
 }
