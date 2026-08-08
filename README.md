@@ -129,7 +129,7 @@ in [`supabase/migrations/0002_no_sale_reason_check.sql`](supabase/migrations/000
 
 See Step 6 of the design document. In short: no user accounts, no search or
 pagination (the workflow carries ~10 open records at a time), no member
-database / DERMS / Dairyland portal integrations, no real email sending (the
+database / DERMS / external rebate-processor portal integrations, no real email sending (the
 app logs that the program email was sent, not the sending itself), and one
 agentic step only — the pursue-or-close decision at 3 failed attempts stays
 with the Member Services Manager, not Claude.
